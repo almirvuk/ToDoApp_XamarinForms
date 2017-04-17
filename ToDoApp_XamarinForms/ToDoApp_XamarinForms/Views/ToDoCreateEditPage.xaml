@@ -5,7 +5,8 @@
              Title="New todo item">
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save" />
+        <ToolbarItem Text="Save"
+                      Command="{Binding Save}"/>
     </ContentPage.ToolbarItems>
 
 
@@ -21,10 +22,14 @@
         <Entry FontSize="Medium"
                HorizontalOptions="FillAndExpand"
                Grid.Row="0"
+               x:Name="Title"
+               Text="{Binding Title, Mode=TwoWay}"
                Margin="6,6,6,2"/>
 
         <Entry FontSize="Small"
                Grid.Row="1"
+               x:Name="Content"
+               Text="{Binding Content,  Mode=TwoWay}"
                HorizontalOptions="FillAndExpand"
                Margin="6,2,6,6"/>
     </Grid>
