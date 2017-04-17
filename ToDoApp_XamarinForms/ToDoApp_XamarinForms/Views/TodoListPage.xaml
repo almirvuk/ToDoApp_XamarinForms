@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoApp_XamarinForms.Views.TodoListPage"
+             xmlns:viewModels="clr-namespace:ToDoApp_XamarinForms.ViewModels; assembly=ToDoApp_XamarinForms"
+             BackgroundColor="#ecf0f1"
+             Title="ToDo Items">
+
+    <!--
+    Setting BindingContext in the XAML 
+    
+    <ContentPage.BindingContext>
+        <viewModels:TodoListViewModel />
+    </ContentPage.BindingContext>
+    -->
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="New"
+                     Clicked="OnNewItem">
+            <ToolbarItem.Icon>
+                <OnPlatform x:TypeArguments="FileImageSource"
+                            Android="plus.png" />
+            </ToolbarItem.Icon>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+
+    <ListView x:Name="ScanItemsList"
+              ItemTapped="OnItemSelected"
+              ItemsSource="{Binding Items}"
+              SeparatorVisibility="None"
+              HasUnevenRows="True">
+
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Vertical"
+                                 BackgroundColor="White"
+                                 Margin="5"
+                                 >
+
+                        <Label Text="{Binding Title}"
+                               Margin="4,4,4,2"
+                               FontAttributes="Bold"
+                               FontSize="Medium" />
+                       
+                        <Label Text="{Binding CreatedAt}"
+                               FontSize="Small"
+                               Margin="4,2,4,4"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

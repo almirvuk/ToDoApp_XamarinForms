@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ToDoApp_XamarinForms"
+             x:Class="ToDoApp_XamarinForms.MainPage"
+             BackgroundColor="#7B1FA2">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackLayout VerticalOptions="CenterAndExpand"
+                     Grid.Row="0"
+                     HorizontalOptions="CenterAndExpand">
+            
+            <Image Source="todolist.png"
+                   Margin="20"
+                   HeightRequest="200" />
+
+            <Label Text="ToDo App&#x0a;MS NetWork 7 Demo"
+                   FontAttributes="Bold"
+                   FontSize="Medium"
+                   TextColor="White"
+                   HorizontalTextAlignment="Center"/>
+        </StackLayout>
+
+
+        <Button Text="Getting Started"
+                VerticalOptions="Center"
+                Clicked="GoToToDoItems"
+                Grid.Row="1"
+                TextColor="#7B1FA2"
+                Margin="8"
+                BackgroundColor="White"
+                HorizontalOptions="FillAndExpand" />
+    </Grid>
+
+
+</ContentPage>

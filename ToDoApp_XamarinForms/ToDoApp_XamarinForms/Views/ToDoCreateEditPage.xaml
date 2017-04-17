@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoApp_XamarinForms.Views.TodoCreateEditPage"
+             Title="New todo item">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save" />
+    </ContentPage.ToolbarItems>
+
+
+    <!--Text="{Binding Text, Mode=TwoWay}"-->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+
+        <Entry FontSize="Medium"
+               HorizontalOptions="FillAndExpand"
+               Grid.Row="0"
+               Margin="6,6,6,2"/>
+
+        <Entry FontSize="Small"
+               Grid.Row="1"
+               HorizontalOptions="FillAndExpand"
+               Margin="6,2,6,6"/>
+    </Grid>
+</ContentPage>
