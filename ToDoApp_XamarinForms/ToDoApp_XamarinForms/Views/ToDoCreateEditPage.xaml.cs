@@ -16,6 +16,7 @@ namespace ToDoApp_XamarinForms.Views {
             InitializeComponent();
 
             BindingContext = new TodoCreateEditViewModel(id, this.Navigation);
+
         }
 
     }

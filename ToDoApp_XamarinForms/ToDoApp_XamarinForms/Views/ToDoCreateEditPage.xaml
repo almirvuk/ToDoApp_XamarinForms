@@ -23,8 +23,16 @@
                HorizontalOptions="FillAndExpand"
                Grid.Row="0"
                x:Name="Title"
-               Text="{Binding Title, Mode=TwoWay}"
-               Margin="6,6,6,2"/>
+               Text="{Binding Title, Mode=TwoWay}">
+
+            <Entry.Margin>
+                <OnPlatform x:TypeArguments="Thickness"
+                            Android="6,6,6,2"
+                            WinPhone="24,12,12,4"
+                            iOS="6,6,6,2" />
+            </Entry.Margin>
+            
+        </Entry>
 
         <Entry FontSize="Small"
                Grid.Row="1"
