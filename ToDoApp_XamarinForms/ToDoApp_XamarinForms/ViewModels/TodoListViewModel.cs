@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using ToDoApp_XamarinForms.DAL;
+using ToDoApp_XamarinForms.Helper;
 using ToDoApp_XamarinForms.Models;
 
 namespace ToDoApp_XamarinForms.ViewModels {
@@ -17,7 +18,8 @@ namespace ToDoApp_XamarinForms.ViewModels {
 
         public ObservableCollection<ToDoItem> Items {
             get { return items; }
-            set { items = value;
+            set {
+                items = value;
                 OnPropertyChanged("Items");
             }
         }
@@ -26,8 +28,15 @@ namespace ToDoApp_XamarinForms.ViewModels {
         public TodoListViewModel() {
 
             ToDoDB _context = new ToDoDB();
-
             Items = new ObservableCollection<ToDoItem>(_context.GetAllItems());
+
+            // Demo Api Call
+            Task getAllLecturesTask = MyHTTP.GetWebApiItems(x =>
+            {
+                foreach (var item in x) {
+                    Items.Add(item);
+                }
+            });
         }
 
 
