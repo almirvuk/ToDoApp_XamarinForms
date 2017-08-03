@@ -28,18 +28,12 @@ namespace ToDoApp_XamarinForms.ViewModels {
             set {
                 content = value;
                 OnPropertyChanged("Content");
-
             }
         }
 
-        // Helper objects
-        public INavigation Navigation { get; set; }
-
         public int ItemId { get; set; }
 
-        public TodoCreateEditViewModel(int id, INavigation nav) {
-
-            Navigation = nav;
+        public TodoCreateEditViewModel(int id) {
 
             if (id == 0) {
                 Title = "";
@@ -71,11 +65,10 @@ namespace ToDoApp_XamarinForms.ViewModels {
                         _context.AddItem(new Models.ToDoItem() { Content = Content, Title = Title, CreatedAt = DateTime.Now });
                     }
 
-                    await Navigation.PopAsync();
+                    await App.Current.MainPage.Navigation.PopAsync();
                 });
             }
         }
-
 
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -12,7 +12,7 @@ using ToDoApp_XamarinForms.Models;
 
 namespace ToDoApp_XamarinForms.ViewModels {
 
-    public class TodoListViewModel : INotifyPropertyChanged {
+    public class TodoListViewModel {
 
         private ObservableCollection<ToDoItem> items;
 
@@ -20,7 +20,6 @@ namespace ToDoApp_XamarinForms.ViewModels {
             get { return items; }
             set {
                 items = value;
-                OnPropertyChanged("Items");
             }
         }
 
@@ -38,11 +37,5 @@ namespace ToDoApp_XamarinForms.ViewModels {
                 }
             });
         }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        void OnPropertyChanged([CallerMemberName]string propertyName = "") =>
-               PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
 }
